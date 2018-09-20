@@ -70,7 +70,8 @@ void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-
+void StartTask_1(void const * argument);
+void StartTask_2(void const * argument);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -127,8 +128,15 @@ int main(void)
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
+  const uint16_t STACK_SIZE = 30;
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  TaskHandle_t Task_1 = NULL;
+  xTaskCreate(StartTask_1, "Task 1", STACK_SIZE, NULL, 3, &Task_1 );
+
+  TaskHandle_t Task_2 = NULL;
+  xTaskCreate(StartTask_2, "Task 2", STACK_SIZE, NULL, 3, &Task_2 );
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -143,9 +151,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
+  while(1)
   {
-
+	  osDelay(1);
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -217,12 +225,47 @@ void SystemClock_Config(void)
 static void MX_GPIO_Init(void)
 {
 
+  GPIO_InitTypeDef GPIO_InitStruct;
+
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PA3 PA4 PA5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
 
 /* USER CODE BEGIN 4 */
+void blick_led(uint16_t pin){
+	HAL_GPIO_TogglePin(GPIOA,pin);
+	HAL_Delay(100);
+}
+
+void StartTask_1(void const * argument)
+{
+
+  /* Infinite loop */
+  for(;;)
+  {
+	  blick_led(GPIO_PIN_5);
+  }
+}
+
+void StartTask_2(void const * argument)
+{
+  /* Infinite loop */
+  for(;;)
+  {
+	  blick_led(GPIO_PIN_4);
+  }
+}
 
 /* USER CODE END 4 */
 
@@ -240,7 +283,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  blick_led(GPIO_PIN_3);
   }
   /* USER CODE END 5 */ 
 }
