@@ -1,0 +1,10 @@
+17:06:55 **** Rebuild of configuration Debug for project freeRTOS ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\Src\system_stm32l0xx.c -mthumb -mcpu=cortex-m0plus -std=gnu11 -O0 -g -fstack-usage -Wall -specs=nano.specs -o Src\system_stm32l0xx.o 
+..\Src\system_stm32l0xx.c:64:23: fatal error: stm32l0xx.h: No such file or directory
+ #include "stm32l0xx.h"
+                       ^
+compilation terminated.
+
+17:06:55 Build Finished (took 426ms)
+

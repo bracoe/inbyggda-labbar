@@ -1,0 +1,20 @@
+17:05:03 **** Rebuild of configuration Debug for project test ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\src\main.c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DSTM32L053xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/STM32L0xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\main.o 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -DSTM32L053xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/STM32L0xx_HAL_Driver/Inc -g -Wa,--warn -x assembler-with-cpp -specs=nano.specs -o src\startup_stm32l053xx.o ..\src\startup_stm32l053xx.s 
+arm-atollic-eabi-gcc -c ..\src\system_stm32l0xx.c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DSTM32L053xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/STM32L0xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\system_stm32l0xx.o 
+arm-atollic-eabi-gcc -c ..\src\tiny_printf.c -mthumb -mcpu=cortex-m0plus -std=gnu11 -DSTM32L053xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/STM32L0xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\tiny_printf.o 
+arm-atollic-eabi-gcc -o test.elf src\main.o src\startup_stm32l053xx.o src\system_stm32l0xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m0plus -T../stm32_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=test.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list test.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+    588	      8	    156	    752	    2f0	test.elf
+Print size information done
+Generate listing file
+Output sent to: test.list
+Generate listing file done
+Generate build reports done
+
+17:05:06 Build Finished (took 3s.735ms)
+

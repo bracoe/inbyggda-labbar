@@ -1,0 +1,10 @@
+15:35:25 **** Incremental Build of configuration Debug for project LabB5 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.c -mthumb -mcpu=cortex-m0plus -std=gnu11 -O0 -g -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o 
+..\Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.c:80:27: fatal error: stm32l0xx_hal.h: No such file or directory
+ #include "stm32l0xx_hal.h"
+                           ^
+compilation terminated.
+
+15:35:26 Build Finished (took 912ms)
+
