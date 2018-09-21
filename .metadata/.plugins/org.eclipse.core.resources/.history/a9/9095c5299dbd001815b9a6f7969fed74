@@ -143,7 +143,7 @@ int main(void)
   xTaskCreate(StartTask_1, "Task1", configMINIMAL_STACK_SIZE, NULL, 2, &Task_1 );
 
   TaskHandle_t Task_2 = NULL;
-  xTaskCreate(StartTask_2, "Task2", configMINIMAL_STACK_SIZE, NULL, 3, &Task_2 );
+  xTaskCreate(StartTask_2, "Task2", configMINIMAL_STACK_SIZE, NULL, 2, &Task_2 );
 
   TaskHandle_t Task_3 = NULL;
   xTaskCreate(StartTask_3, "Task3", configMINIMAL_STACK_SIZE, NULL, 2, &Task_3 );
@@ -262,13 +262,14 @@ void blick_led(uint16_t pin){
 		shared resource. */
 
 		HAL_GPIO_TogglePin(GPIOA,pin);
+		osDelay(100);
 
 		/* We have finished accessing the shared resource.  Release the
 		semaphore. */
 		if( xSemaphoreGive( xLedSemaphore ) != pdTRUE )
 		{
 			for(;;){
-				//osDelay(10);
+				osDelay(10);
 			}
 			// We would not expect this call to fail because we must have
 			// obtained the semaphore to get here.

@@ -1,25 +1,17 @@
-19:43:29 **** Incremental Build of configuration Debug for project LabRTOS ****
+15:02:13 **** Incremental Build of configuration Debug for project LabRTOS ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32L053xx -I../Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0 -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Src\main.o ..\Src\main.c 
 ..\Src\main.c: In function 'main':
-..\Src\main.c:139:15: warning: passing argument 1 of 'xTaskCreate' from incompatible pointer type [-Wincompatible-pointer-types]
-   xTaskCreate(StartTask_1, "Task 1", STACK_SIZE, NULL, 1, &Task_1 );
+..\Src\main.c:143:15: warning: passing argument 1 of 'xTaskCreate' from incompatible pointer type [-Wincompatible-pointer-types]
+   xTaskCreate(StartTask_1, "Task1", configMINIMAL_STACK_SIZE, NULL, 2, &Task_1 );
                ^~~~~~~~~~~
 In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:102:0,
                  from ..\Src\main.c:52:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:360:13: note: expected 'TaskFunction_t {aka void (*)(void *)}' but argument is of type 'void (*)(const void *)'
   BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
              ^~~~~~~~~~~
-..\Src\main.c:142:15: warning: passing argument 1 of 'xTaskCreate' from incompatible pointer type [-Wincompatible-pointer-types]
-   xTaskCreate(StartTask_2, "Task 2", STACK_SIZE, NULL, 4, &Task_2 );
-               ^~~~~~~~~~~
-In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:102:0,
-                 from ..\Src\main.c:52:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:360:13: note: expected 'TaskFunction_t {aka void (*)(void *)}' but argument is of type 'void (*)(const void *)'
-  BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
-             ^~~~~~~~~~~
-..\Src\main.c:145:15: warning: passing argument 1 of 'xTaskCreate' from incompatible pointer type [-Wincompatible-pointer-types]
-   xTaskCreate(StartTask_3, "Task 3", STACK_SIZE, NULL, 3, &Task_3 );
+..\Src\main.c:146:15: warning: passing argument 1 of 'xTaskCreate' from incompatible pointer type [-Wincompatible-pointer-types]
+   xTaskCreate(StartTask_2, "Task2", configMINIMAL_STACK_SIZE, NULL, 3, &Task_2 );
                ^~~~~~~~~~~
 In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:102:0,
                  from ..\Src\main.c:52:
@@ -31,7 +23,7 @@ C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   8704	     16	   5028	  13748	   35b4	LabRTOS.elf
+   8652	     16	   6956	  15624	   3d08	LabRTOS.elf
 Print size information done
 Generate listing file
 Output sent to: LabRTOS.list
