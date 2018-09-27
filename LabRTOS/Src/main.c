@@ -143,7 +143,7 @@ int main(void)
   xTaskCreate(StartTask_1, "Task1", configMINIMAL_STACK_SIZE, NULL, 2, &Task_1 );
 
   TaskHandle_t Task_2 = NULL;
-  xTaskCreate(StartTask_2, "Task2", configMINIMAL_STACK_SIZE, NULL, 3, &Task_2 );
+  xTaskCreate(StartTask_2, "Task2", configMINIMAL_STACK_SIZE, NULL, 2, &Task_2 );
 
   TaskHandle_t Task_3 = NULL;
   xTaskCreate(StartTask_3, "Task3", configMINIMAL_STACK_SIZE, NULL, 2, &Task_3 );
@@ -256,7 +256,7 @@ static void MX_GPIO_Init(void)
 void blick_led(uint16_t pin){
 	/* See if we can obtain the semaphore.  If the semaphore is not
 	available wait 10 ticks to see if it becomes free. */
-	if( xSemaphoreTake( xLedSemaphore, ( TickType_t ) 10 ) == pdTRUE )
+	if( xSemaphoreTake( xLedSemaphore, ( TickType_t ) 0 ) == pdTRUE )
 	{
 		/* We were able to obtain the semaphore and can now access the
 		shared resource. */
@@ -291,6 +291,7 @@ void StartTask_1(void const * argument)
   for(;;)
   {
 	  blick_led(GPIO_PIN_5);
+	  vTaskDelay(20);
   }
 }
 
@@ -300,6 +301,7 @@ void StartTask_2(void const * argument)
   for(;;)
   {
 	  blick_led(GPIO_PIN_4);
+	  vTaskDelay(20);
   }
 }
 
@@ -309,6 +311,7 @@ void StartTask_3(void const * argument)
   for(;;)
   {
 	  blick_led(GPIO_PIN_3);
+	  vTaskDelay(20);
   }
 }
 

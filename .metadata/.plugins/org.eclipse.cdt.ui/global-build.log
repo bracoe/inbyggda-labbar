@@ -1,33 +1,26 @@
-15:02:13 **** Incremental Build of configuration Debug for project LabRTOS ****
+15:51:41 **** Incremental Build of configuration Debug for project LabDMA ****
 Info: Internal Builder is used for build
-arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32L053xx -I../Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0 -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Src\main.o ..\Src\main.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0plus -std=gnu11 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32L053xx -I../Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Src\main.o ..\Src\main.c 
 ..\Src\main.c: In function 'main':
-..\Src\main.c:143:15: warning: passing argument 1 of 'xTaskCreate' from incompatible pointer type [-Wincompatible-pointer-types]
-   xTaskCreate(StartTask_1, "Task1", configMINIMAL_STACK_SIZE, NULL, 2, &Task_1 );
-               ^~~~~~~~~~~
-In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:102:0,
-                 from ..\Src\main.c:52:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:360:13: note: expected 'TaskFunction_t {aka void (*)(void *)}' but argument is of type 'void (*)(const void *)'
-  BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
-             ^~~~~~~~~~~
-..\Src\main.c:146:15: warning: passing argument 1 of 'xTaskCreate' from incompatible pointer type [-Wincompatible-pointer-types]
-   xTaskCreate(StartTask_2, "Task2", configMINIMAL_STACK_SIZE, NULL, 3, &Task_2 );
-               ^~~~~~~~~~~
-In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:102:0,
-                 from ..\Src\main.c:52:
-../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:360:13: note: expected 'TaskFunction_t {aka void (*)(void *)}' but argument is of type 'void (*)(const void *)'
-  BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
-             ^~~~~~~~~~~
-arm-atollic-eabi-gcc -o LabRTOS.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.o Middlewares\Third_Party\FreeRTOS\Source\croutine.o Middlewares\Third_Party\FreeRTOS\Source\event_groups.o Middlewares\Third_Party\FreeRTOS\Source\list.o Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM0\port.o Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.o Middlewares\Third_Party\FreeRTOS\Source\queue.o Middlewares\Third_Party\FreeRTOS\Source\tasks.o Middlewares\Third_Party\FreeRTOS\Source\timers.o Src\freertos.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_hal_timebase_TIM.o Src\stm32l0xx_it.o Src\system_stm32l0xx.o startup\startup_stm32l053xx.o -mthumb -mcpu=cortex-m0plus -T../STM32L053C8_FLASH.ld -specs=nosys.specs -static -Wl,-Map=LabRTOS.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
-C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list LabRTOS.elf 
+..\Src\main.c:125:62: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+     status = HAL_UART_Transmit(&huart1, (uint8_t*)send_text, send_text, 500);
+                                                              ^~~~~~~~~
+In file included from ../Inc/stm32l0xx_hal_conf.h:265:0,
+                 from ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:46,
+                 from ..\Src\main.c:41:
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h:1377:19: note: expected 'uint16_t {aka short unsigned int}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o LabDMA.elf Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_cortex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_dma.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_flash_ramfunc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_gpio.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_i2c_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_pwr_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_rcc_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_tim_ex.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_uart.o Drivers\STM32L0xx_HAL_Driver\Src\stm32l0xx_hal_uart_ex.o Src\main.o Src\stm32l0xx_hal_msp.o Src\stm32l0xx_it.o Src\system_stm32l0xx.o startup\startup_stm32l053xx.o -mthumb -mcpu=cortex-m0plus -T../STM32L053C8_FLASH.ld -specs=nosys.specs -static -Wl,-Map=LabDMA.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list LabDMA.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   8652	     16	   6956	  15624	   3d08	LabRTOS.elf
+   8132	     12	   1744	   9888	   26a0	LabDMA.elf
 Print size information done
 Generate listing file
-Output sent to: LabRTOS.list
+Output sent to: LabDMA.list
 Generate listing file done
 Generate build reports done
-arm-atollic-eabi-objcopy.exe -O ihex LabRTOS.elf LabRTOS.hex 
-Info: Nothing to build for LabRTOS
+arm-atollic-eabi-objcopy.exe -O ihex LabDMA.elf LabDMA.hex 
+Info: Nothing to build for LabDMA
